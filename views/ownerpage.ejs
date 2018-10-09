@@ -9,14 +9,22 @@
   </head>
   <body>
     <h1>Welcome,  <%= owner.first_name %></h1><br>
+
+    <h5><a href="/addcar">Add Car </a></h5>
+
+    <hr>
     <h3>Your cars</h3><br>
+
 
     <% for (let i=0;i<vehicles.length; i++) { %>
 
     </vehicles.length;>
-      <hr><br>
+    <br>
+
+        <img src="./assets/img/<%=vehicles[i].url_img%>" width="600">
         <h3><%=vehicles[i].make%>  <%=vehicles[i].model%></h3> <h5><%=vehicles[i].year%></h5>
-        
+        <h5>$<%=vehicles[i].price%>/Day</h5>
+          <hr>
     <% } %>
 
 
