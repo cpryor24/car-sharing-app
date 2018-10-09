@@ -2,6 +2,6 @@
 const main = require("../controllers/main.js")
 module.exports = function(app){
 
-  app.get('/', template.index);
+  app.get('/', main.index);
 
 }
