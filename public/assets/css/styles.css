@@ -1,3 +1,25 @@
-h3 {
-  color: red;
+.head-container {
+  background: url('/assets/img/bg.png');
+  background-size: cover;
+  background-position-y: 85%;
+  height: 600px;
+  padding-top: 200px;
+}
+
+.form-control {
+  width: 250px;
+  display: inline-block;
+}
+
+.insurance {
+  background-color: white;
+  width: 250px;
+  border: 2px solid white;
+  border-radius: 5px;
+  margin: auto;
+  margin-top: -30px;
+}
+
+.insurance img {
+  width: 220px;
 }

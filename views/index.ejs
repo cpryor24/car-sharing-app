@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="./assets/css/styles.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/styles.css">
     <title>Car Sharing</title>
   </head>
   <body>
@@ -87,7 +87,77 @@
       </div>
     </div>
 
-    <h1>Home Page</h1>
+    <div class="container-fluid">
+      <div class="row">
+        <header class="col-sm-12 head-container">
+          <h1 class="text-center text-white">Skip the rental counter</h1>
+          <p class="text-center text-white">Book unforgettable cars from local hosts around the world</p>
+          <form action="/sign-up" method="post" class="text-center">
+              <select class="form-control" name="make" id="">
+                <option value="Make" disabled selected>Make</option>
+              <% for(let i = 0; i < vehicle.length; i++) {%>
+                <option value="<%= vehicle[i].make%>"><%= vehicle[i].make%></option>
+              <% } %>
+              </select>
+            <input type="date" class="form-control" name="from" placeholder="From">
+            <input type="date" class="form-control" name="to" placeholder="To">
+            <!-- <div class="text-center"> -->
+              <input class="btn btn-primary" type="submit" value="Submit">
+            <!-- </div> -->
+          </form>
+        </header>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="insurance text-center">
+            <div class="text-center">Insurance Partner</div>
+            <img src="/assets/img/LM.jpg" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    
+    <div class="container-fluid">
+      <div class="row">
+        <% for(let i = 0; i < vehicle.length; i++) {%>
+          <div class="col-sm-12 col-md-4">
+            <div class="card-deck">
+              <div class="card">
+                <img class="card-img-top" src="<%= vehicle[i].url_img%>" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title"><%= vehicle[i].make%> <%= vehicle[i].model%> <%= vehicle[i].year%></h5>
+                  <div class="card-text"><%= vehicle[i].trips%> trips</div>
+                  <div class="text-right">$<%= vehicle[i].price%></div>
+                  <div class="text-right">per day</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% } %>
+      </div>
+    </div>
+    <br>
+    <br>
+
+    <h1 class="text-center">Way better than a rental car</h1>
+    <p class="text-center">Bypass the rental counter and book unforgettable cars from friendly locals</p>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-5 offset-1">
+          <h4 class="text-center">THE CAR YOU WANT</h4>
+          <p class="text-center">Choose from over 800 unique makes and models, from affordable daily drivers to rare specialty cars.</p>
+        </div>
+        <div class="col-sm-12 col-md-5">
+          <h4 class="text-center">WHERE YOU WANT IT</h4>
+          <p class="text-center">Pick up the car or get it delivered, wherever you need it, up to 35% less than traditional agencies.</p>
+        </div>
+      </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
