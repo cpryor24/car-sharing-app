@@ -1,6 +1,7 @@
 const main = require("../controllers/main.js")
 const ownerpage = require("../controllers/ownerpage.js")
 const addcar = require("../controllers/addcar.js")
+const vehicle = require("../controllers/vehicle.js")
 
 module.exports = function(app){
 
@@ -8,6 +9,9 @@ module.exports = function(app){
   app.get('/sign-up', main.show);
   app.post('/login', main.login);
   app.post('/sign-up', main.signUp)
+
+  // View Vehicle
+  app.get('/rental/:id', vehicle.rental)
 
   app.use(authenication);
 
