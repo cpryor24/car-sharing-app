@@ -21,7 +21,25 @@ module.exports = {
   },
 
   login: (req, res) => {
+    knex('owners').where("email", req.body.email)
+    .then((results)=>{
+      console.log(req.body.email);
+      let owner=results[0];
+      if(!owner)
+        {
+          res.redirect('/');
+          return;
+        }
+       if (owner.password === req.body.password){
+         req.session.owner_id = user.ud;
+         req.session.save(()=>{
+           res.redirect('/ownerpage')
+         })
+        }else{
+          res.redirect('/');
+        }
 
+     })
   },
 
 }
