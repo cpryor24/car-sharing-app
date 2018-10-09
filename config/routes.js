@@ -13,6 +13,7 @@ module.exports = function(app){
 
   app.get('/ownerpage', ownerpage.index)
   app.get('/addcar', addcar.index)
+  app.post('/addnewcar', addcar.newcar)
 
 
 
