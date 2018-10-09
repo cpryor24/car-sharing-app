@@ -1,8 +1,27 @@
 const knex = require("../db/knex.js");
 
 module.exports = {
-  // CHANGE ME TO AN ACTUAL FUNCTION
-  index: function(req, res) {
+  index: (req, res) => {
     res.render('index');
   },
+
+  show: (req, res) => {
+    res.render('index')
+  },
+
+  signUp: (req, res) => {
+    knex('owners').insert({
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      email: req.body.email,
+      password: req.body.password
+    }).then( () => {
+      res.redirect('/')
+    })
+  },
+
+  login: (req, res) => {
+
+  },
+
 }
