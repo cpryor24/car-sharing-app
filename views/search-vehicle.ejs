@@ -95,8 +95,8 @@
           <form action="/search" method="get" class="text-center search">
               <select class="form-control" name="make" id="">
                 <option value="Make" disabled selected>Make</option>
-              <% for(let i = 0; i < vehicle.length; i++) {%>
-                <option value="<%= vehicle[i].make%>"><%= vehicle[i].make%></option>
+              <% for(let i = 0; i < car.length; i++) {%>
+                <option value="<%= car[i].make%>"><%= car[i].make%></option>
               <% } %>
               </select>
             <input type="date" class="form-control" name="from" placeholder="From">
@@ -107,49 +107,20 @@
       </div>
     </div>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="insurance text-center">
-            <div class="text-center">Insurance Partner</div>
-            <img src="/assets/img/LM.jpg" alt="">
-          </div>
-        </div>
-      </div>
-    </div>
-    <br>
-
-    <h1 class="text-center">Way better than a rental car</h1>
-    <p class="text-center">Bypass the rental counter and book unforgettable cars from friendly locals</p>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12 col-md-5 offset-1">
-          <h4 class="text-center">THE CAR YOU WANT</h4>
-          <p class="text-center">Choose from over 800 unique makes and models, from affordable daily drivers to rare specialty cars.</p>
-        </div>
-        <div class="col-sm-12 col-md-5">
-          <h4 class="text-center">WHERE YOU WANT IT</h4>
-          <p class="text-center">Pick up the car or get it delivered, wherever you need it, up to 35% less than traditional agencies.</p>
-        </div>
-      </div>
-    </div>
-    <br>
-    <br>
-
     <div class="container-fluid">
       <div class="row">
-        <% for(let i = 0; i < vehicle.length; i++) {%>
+        <% for(let i = 0; i < car.length; i++) {%>
             <div class="col-sm-12 col-md-4">
               <div class="card-deck">
                 <div class="card">
-                  <a href="/rental/<%= vehicle[i].id%>">
+                  <a href="/rental/<%= car[i].id%>">
 
-                  <img class="card-img-top" src="/assets/img/<%= vehicle[i].url_img%>" alt="Card image cap">
+                  <img class="card-img-top" src="/assets/img/<%= car[i].url_img%>" alt="Card image cap">
                 </a>
                   <div class="card-body">
-                    <h5 class="card-title"><%= vehicle[i].make%> <%= vehicle[i].model%> <%= vehicle[i].year%></h5>
-                    <div class="card-text"><%= vehicle[i].trips%> trips</div>
-                    <div class="text-right">$<%= vehicle[i].price%></div>
+                    <h5 class="card-title"><%= car[i].make%> <%= car[i].model%> <%= car[i].year%></h5>
+                    <div class="card-text"><%= car[i].trips%> trips</div>
+                    <div class="text-right">$<%= car[i].price%></div>
                     <div class="text-right">per day</div>
                   </div>
                 </div>

@@ -11,11 +11,18 @@ module.exports = function(app){
   app.post('/login', main.login);
   app.post('/sign-up', main.signUp);
 
+  // search
+  app.get('/search', main.search);
+
   // View Vehicle
   app.get('/rental/:id', vehicle.rental);
 
   // Book vehicle
-  app.get('/booking/:id', booking.showBooking)
+  app.get('/booking/:id', booking.showBooking);
+  app.post('/reservation/:id', booking.reserve);
+
+  // Reservation
+  app.get('/reservation/:id', booking.confirm);
 
   app.use(authenication);
 

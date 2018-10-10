@@ -3,8 +3,16 @@ const knex = require("../db/knex.js");
 module.exports = {
   index: (req, res) => {
     knex('vehicles').then( (data) => {
-    console.log(data)
       res.render('index', {vehicle: data});
+    })
+  },
+
+  search: (req, res) => {
+    knex('vehicles').then( (data) => {
+      knex('bookings').where('from', req.query.from).where('to', req.query.to)
+        .then( (results) => {
+          res.render('search-vehicle', {car: data, book: results})
+        })
     })
   },
 

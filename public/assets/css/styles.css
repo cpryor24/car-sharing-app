@@ -6,6 +6,12 @@
   padding-top: 200px;
 }
 
+.container-fluid {
+  /* padding-right: 0; */
+  /* padding-left: 0; */
+  overflow: hidden;
+}
+
 .login .form-control,
 .signin .form-control,
 .checkout .form-control,
@@ -27,7 +33,6 @@
   width: 220px;
 }
 
-
 .image {
   border: 2px solid white;
   border-radius: 50%;
@@ -47,4 +52,9 @@
 .vehicle_edit {
   margin-left: 30px;
 
+}
+
+.reserve img {
+  height: 90vh;
+  width: 100vw;
 }
