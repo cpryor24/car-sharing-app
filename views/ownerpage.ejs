@@ -8,9 +8,9 @@
     <title>Owner Page</title>
   </head>
   <body>
-    <h1>Welcome,  <%= owner.first_name %></h1><br>
+    <h1>Welcome back,  <%= owner.first_name %></h1><br>
 
-    <h5><a href="/addcar">Add Car </a></h5>
+    <h5><a href="/addcar">Add New Vehicle </a></h5>
 
     <hr>
     <h3>Your cars</h3><br>
@@ -18,13 +18,46 @@
 
     <% for (let i=0;i<vehicles.length; i++) { %>
 
-    </vehicles.length;>
-    <br>
+      <div class="">
 
-        <img src="./assets/img/<%=vehicles[i].url_img%>" width="600">
-        <h3><%=vehicles[i].make%>  <%=vehicles[i].model%></h3> <h5><%=vehicles[i].year%></h5>
-        <h5>$<%=vehicles[i].price%>/Day</h5>
-          <hr>
+       <div style="display:flex; margin-left: 30px">
+         <img src="./assets/img/<%=vehicles[i].url_img%>" width="700">
+
+
+           <form class="vehicle_edit" action="/editvehicle/<%=vehicles[i].id%>" method="post">
+             <input type="text" name="make" value="<%=vehicles[i].make%>">:Make<br>
+             <input type="text" name="model" value="<%=vehicles[i].model%>">Model<br>
+             <input type="text" name="year" value="<%=vehicles[i].year%>">Year<br>
+             <input type="text" name="price" value="<%=vehicles[i].price%>">Price<br>
+             <input type="text" name="odometer" value="<%=vehicles[i].odometer%>">Odometer<br>
+             <input type="text" name="transmission" value="<%=vehicles[i].transmission%>">Transmission<br>
+             <input type="text" name="doors" value="<%=vehicles[i].doors%>">Doors<br>
+             <input type="text" name="mpg" value="<%=vehicles[i].mpg%>">MPG<br>
+             <input type="text" name="gas" value="<%=vehicles[i].gas%>">Gas<br>
+             <input type="text" name="seats" value="<%=vehicles[i].seats%>">Seats<br>
+             <input type="text" name="url_img" value="<%=vehicles[i].url_img%>">Img URL<br>
+             <input type="text" name="city" value="<%=vehicles[i].city%>">City<br>
+             <input type="text" name="state" value="<%=vehicles[i].state%>">State<br>
+             <input type="text" name="description" value="<%=vehicles[i].description%>">Description<br>
+             <input type="text" name="instructions" value="<%=vehicles[i].instructions%>">Instructions<br>
+
+             <button type="submit">Update Info</button><br>
+             <a href ="/deletevehicle/<%=vehicles[i].id%>" class ="vehicle_update">Delete Vehicle</a>
+           </form>
+
+       </div>
+
+       <div class="vehicleinfo">
+         <h3><%=vehicles[i].make%>  <%=vehicles[i].model%></h3> <h5>  <%=vehicles[i].year%></h5>
+
+
+       </div>
+       <h5>$<%=vehicles[i].price%>/Day</h5>
+         <hr>
+
+
+       </div>
+
     <% } %>
 
 
