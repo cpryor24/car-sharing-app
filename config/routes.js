@@ -8,16 +8,18 @@ module.exports = function(app){
   app.get('/', main.index);
   app.get('/sign-up', main.show);
   app.post('/login', main.login);
-  app.post('/sign-up', main.signUp)
+  app.post('/sign-up', main.signUp);
 
   // View Vehicle
-  app.get('/rental/:id', vehicle.rental)
+  app.get('/rental/:id', vehicle.rental);
 
   app.use(authenication);
 
-  app.get('/ownerpage', ownerpage.index)
-  app.get('/addcar', addcar.index)
-  app.post('/addnewcar', addcar.newcar)
+  app.get('/ownerpage', ownerpage.op);
+  app.get('/addcar', addcar.ac);
+  app.post('/addnewcar', addcar.newcar);
+  app.post('/editvehicle/:id', addcar.edit);
+  app.get('/deletevehicle/:id', addcar.delete);
 
 
 

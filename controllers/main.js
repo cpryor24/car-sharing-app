@@ -3,7 +3,7 @@ const knex = require("../db/knex.js");
 module.exports = {
   index: (req, res) => {
     knex('vehicles').then( (data) => {
-      console.log('vehicle', data)
+    
       res.render('index', {vehicle: data});
     })
   },
