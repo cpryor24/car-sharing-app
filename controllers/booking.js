@@ -1,11 +1,11 @@
 const knex = require("../db/knex.js");
 
 module.exports = {
-  rental: (req, res) => {
+  showBooking: (req, res) => {
     knex('owners').where('owners.id', req.params.id).join('vehicles', 'owners.id', 'vehicles.owner_id')
       .then( (data) => {
-        console.log('clicked car', data[0])
-        res.render('rent-vehicle', {rental: data[0]})
+        console.log(data);
+        res.render('booking', {confirm: data[0]})
       })
   }
 }

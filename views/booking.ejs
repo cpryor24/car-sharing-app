@@ -24,7 +24,6 @@
       </div>
     </nav>
 
-
     <!-- Nav Login Modal -->
     <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="signIn" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
@@ -39,7 +38,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-sm-12 col-md-10 offset-md-1">
-                  <form action="/login" method="post">
+                  <form action="/login" class="login" method="post">
                     <input type="email" class="form-control" name="email" placeholder="Email"><br>
                     <input type="password" class="form-control" name="password" placeholder="Password"><br>
                     <div class="text-center">
@@ -69,7 +68,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-sm-12 col-md-10 offset-md-1">
-                  <form action="/sign-up" method="post">
+                  <form action="/sign-up" class="signin" method="post">
                     <input type="text" class="form-control" name="first_name" placeholder="First Name"><br>
                     <input type="text" class="form-control" name="last_name" placeholder="Last Name"><br>
                     <input type="email" class="form-control" name="email" placeholder="Email"><br>
@@ -87,79 +86,83 @@
       </div>
     </div>
 
-    <div class="container-fluid">
-      <div class="row">
-        <header class="col-sm-12 head-container">
-          <h1 class="text-center text-white">Skip the rental counter</h1>
-          <p class="text-center text-white">Book unforgettable cars from local hosts around the world</p>
-          <form action="/sign-up" method="post" class="text-center">
-              <select class="form-control" name="make" id="">
-                <option value="Make" disabled selected>Make</option>
-              <% for(let i = 0; i < vehicle.length; i++) {%>
-                <option value="<%= vehicle[i].make%>"><%= vehicle[i].make%></option>
-              <% } %>
-              </select>
-            <input type="date" class="form-control" name="from" placeholder="From">
-            <input type="date" class="form-control" name="to" placeholder="To">
-              <input class="btn btn-primary" type="submit" value="Search">
-          </form>
-        </header>
-      </div>
-    </div>
-
+    <h1 class="text-center">checkout</h1>
+    <hr>
     <div class="container">
       <div class="row">
-        <div class="col-sm-12">
-          <div class="insurance text-center">
-            <div class="text-center">Insurance Partner</div>
-            <img src="/assets/img/LM.jpg" alt="">
-          </div>
-        </div>
-      </div>
-    </div>
-    <br>
+        <div class="col-5 offset-1">
 
-    <h1 class="text-center">Way better than a rental car</h1>
-    <p class="text-center">Bypass the rental counter and book unforgettable cars from friendly locals</p>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12 col-md-5 offset-1">
-          <h4 class="text-center">THE CAR YOU WANT</h4>
-          <p class="text-center">Choose from over 800 unique makes and models, from affordable daily drivers to rare specialty cars.</p>
-        </div>
-        <div class="col-sm-12 col-md-5">
-          <h4 class="text-center">WHERE YOU WANT IT</h4>
-          <p class="text-center">Pick up the car or get it delivered, wherever you need it, up to 35% less than traditional agencies.</p>
-        </div>
-      </div>
-    </div>
-    <br>
-    <br>
+          <form action="post" class="checkout text-center">
+            <div class="accordion" id="accordionExample">
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      Profile Image
+                    </button>
+                  </h5>
+                </div>
 
-    <div class="container-fluid">
-      <div class="row">
-        <% for(let i = 0; i < vehicle.length; i++) {%>
-            <div class="col-sm-12 col-md-4">
-              <div class="card-deck">
-                <div class="card">
-                  <a href="/rental/<%= vehicle[i].id%>">
-
-                  <img class="card-img-top" src="/assets/img/<%= vehicle[i].url_img%>" alt="Card image cap">
-                </a>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                   <div class="card-body">
-                    <h5 class="card-title"><%= vehicle[i].make%> <%= vehicle[i].model%> <%= vehicle[i].year%></h5>
-                    <div class="card-text"><%= vehicle[i].trips%> trips</div>
-                    <div class="text-right">$<%= vehicle[i].price%></div>
-                    <div class="text-right">per day</div>
+                    <input type="file" class="form-control" name="img">
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingTwo">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Contact Information
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                  <div class="card-body">
+                    <input type="email" class="form-control" name="email" placeholder="Email"><br><br>
+                    <input type="name" class="form-control" name="name" placeholder="Name"><br><br>
+                    <input type="text" class="form-control" name="address" placeholder="Address"><br><br>
+                    <input type="text" class="form-control" name="city" placeholder="City"><br><br>
+                    <input type="text" class="form-control" name="state" placeholder="State"><br><br>
+                    <input type="text" class="form-control" name="zip" placeholder="Zip Code"><br><br>
+                    <div class="text-center">
+                      <input class="btn btn-primary" type="submit" value="Book Vehicle">
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-        <% } %>
-      </div>
+          </form>
+        </div>
+        <div class="col-5 offset-1">
+          <div class="card" style="width: 20rem;">
+            <img class="card-img-top" src="/assets/img/<%= confirm.url_img%>" alt="Card image cap">
+            <div class="text-center"><img class="image" src="/assets/img/<%= confirm.img%>" alt=""></div>
+            <div class="card-body">
+              <div><%= confirm.first_name%>'s</div>
+              <h5 class="card-title"><%= confirm.make%> <%= confirm.model%></h5>
+              <div><%= confirm.year%></div>
+              <p class="card-text"><%= confirm.trips%> trips</p>
+              <div class="container">
+                <div class="row">
+                  <div class="col-6"></div>
+                  <div class="col-6"></div>
+                </div>
+              </div>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">meeting locations <div><%= confirm.city%>, <%= confirm.state%></div></li>
+              <li class="list-group-item">1500 miles included</li>
+              <li class="list-group-item">Trip price: <%= confirm.price%>/day</li>
+            </ul>
+            <div class="card-body">
+              <div class="total">Rental total $<span id="total"></span></div>
+            </div>
+          </div>
+        </div>
     </div>
-    <br>
-    <br>
+  </div>
+
 
 
 

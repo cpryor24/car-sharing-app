@@ -6,7 +6,9 @@
   padding-top: 200px;
 }
 
-.form-control {
+.login .form-control,
+.signin .form-control,
+.checkout .form-control {
   width: 250px;
   display: inline-block;
 }
@@ -22,4 +24,12 @@
 
 .insurance img {
   width: 220px;
+}
+
+.image {
+  border: 2px solid white;
+  border-radius: 50%;
+  height: 75px;
+  width: 75px;
+  margin-top: -30px;
 }

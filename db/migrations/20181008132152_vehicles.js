@@ -4,18 +4,18 @@ exports.up = function(knex, Promise) {
     table.increments();
     table.string('make');
     table.string('model');
-    table.integer('year');
+    table.integer('year').notNullable();
     table.decimal('price');
-    table.integer('odometer');
+    table.integer('odometer').notNullable();
     table.string('transmission');
-    table.integer('mpg');
-    table.integer('doors');
+    table.integer('mpg').notNullable();
+    table.integer('doors').notNullable();
     table.string('gas');
-    table.integer('seats');
+    table.integer('seats').notNullable();
     table.text('url_img');
     table.string('city');
     table.string('state');
-    table.integer('trips');
+    table.integer('trips').notNullable();
     table.text('description');
     table.text('instructions');
     table.integer('owner_id')

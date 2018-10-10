@@ -87,7 +87,13 @@
       </div>
     </div>
 
-
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12">
+          <div><img src="/assets/img/<%= rental.url_img %>" alt=""></div>
+        </div>
+      </div>
+    </div>
 
     <div class="container">
       <div class="row">
@@ -101,6 +107,89 @@
     </div>
     <br>
 
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-7">
+          <div class="container">
+            <div class="row">
+              <!-- <div class="col-sm-12 col-md-9"> -->
+                <div class="col-sm-6">
+                  <div>the car</div>
+                  <div>description</div>
+                  <div>Guidelines</div>
+                </div>
+                <div class="col-sm-6">
+                  <!-- <div>
+                    <div><%= rental.first_name%>'s</div>
+                    <div><%= rental.make%> <%= rental.model%> <%= rental.year%></div>
+                    <div><%= rental.trips%> trips</div>
+                    <div class=""><%= rental.mpg%> MPG</div class=""><div class=""><%= rental.gas%></div class="">
+                    <div class=""><%= rental.doors%> doors</div><div class=""><%= rental.seats%> seats</div>
+                  </div> -->
+                  <div class="text-right">150 mi</div>
+                  <div class="text-right">800 mi</div>
+                  <div class="text-right">2000 mi</div>
+                </div>
+                <div>
+
+
+
+                </div>
+                <div><%= rental.description%></div>
+                <div><%= rental.instructions%></div>
+              <!-- </div> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-5">
+          <div class="">
+            <div class="text-center"><%= rental.price%> per day</div>
+            <form action="/booking/<%=rental.id%>" method="get" >
+              <label for="from">Rental start</label>
+              <input type="date" class="form-control" name="from" placeholder="From"><br><br>
+              <label for="to">Rental end</label>
+              <input type="date" class="form-control" name="to" placeholder="To"><br><br>
+              <div class="alert alert-danger" role="alert">
+                This car isn’t available for the selected dates.
+              </div>
+              <div class="text-center">
+                <input class="btn btn-primary" type="submit" value="Go to checkout">
+              </div>
+            </form>
+            <div class="text-center">You won't be charged yet.</div>
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-12">DISTANCE INCLUDED</div>
+                <div class="col-sm-6">
+                  <div>Day</div>
+                  <div>Week</div>
+                  <div>Month</div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="text-right">150 mi</div>
+                  <div class="text-right">800 mi</div>
+                  <div class="text-right">2000 mi</div>
+                </div>
+                <div class="col-sm-12">
+                  <div>INSURANCE PROVIDED VIA</div>
+                  <div>Liberty Mutual</div>
+                </div>
+                <div class="col-sm-6">
+                  <div>OWNED BY</div>
+                  <div><%= rental.first_name%> <%= rental.last_name%></div>
+                  <div>Month</div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="text-right"><img src="" alt=""></div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
 
 
@@ -108,5 +197,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="/assets/js/app.js"></script>
   </body>
 </html>
