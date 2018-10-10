@@ -8,7 +8,8 @@
 
 .login .form-control,
 .signin .form-control,
-.checkout .form-control {
+.checkout .form-control,
+.search .form-control {
   width: 250px;
   display: inline-block;
 }
@@ -33,6 +34,7 @@
   height: 75px;
   width: 75px;
   margin-top: -30px;
+}
 
 .vehicleinfo {
   display: inline-flex;
