@@ -1,4 +1,5 @@
 const knex = require("../db/knex.js");
+const moment = require('moment');
 
 module.exports = {
   index: (req, res) => {
@@ -8,12 +9,17 @@ module.exports = {
   },
 
   search: (req, res) => {
-    knex('vehicles').then( (data) => {
-      knex('bookings').whereNot({from: req.query.from, to: req.query.to})
-        .then( (results) => {
-          console.log('results', results)
-          res.render('search-vehicle', {car: data, book: results})
-        })
+    knex('vehicles')
+    .select('bookings.*', 'vehicles.*')
+    .leftJoin('bookings', 'bookings.vehicle_id', 'vehicles.id')
+    .where('vehicles.make', req.query.make)
+    .whereRaw(`(("from" < '${req.query.from}' AND "to" < '${req.query.to}') OR ("from" > '${req.query.from}' AND "to" > '${req.query.to}') OR ("from" IS null AND "to" IS null))`)
+    .distinct()
+    .then( (results) => {
+      knex('vehicles').then((vehicles)=>{
+        console.log('results', results, req.query.from, req.query.to)
+        res.render('search-vehicle', {books: results, car: vehicles})
+      })
     })
   },
 

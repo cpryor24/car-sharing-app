@@ -21,7 +21,23 @@
             <a class="nav-link" href="#" data-toggle="modal" data-target="#signUp">Sign up</a>
           </li>
         </ul>
+
       </div>
+      <header >
+        <!-- <h1 class="text-center text-white">Skip the rental counter</h1> -->
+        <!-- <p class="text-center text-white">Book unforgettable cars from local hosts around the world</p> -->
+        <form action="/search" method="get" class="text-center search">
+            <select class="form-control" name="make" id="">
+              <option value="Make" disabled selected>Make</option>
+            <% for(let i = 0; i < car.length; i++) {%>
+              <option value="<%= car[i].make%>"><%= car[i].make%></option>
+            <% } %>
+            </select>
+          <input type="date" class="form-control" name="from" placeholder="From">
+          <input type="date" class="form-control" name="to" placeholder="To">
+            <input class="btn btn-primary" type="submit" value="Search">
+        </form>
+      </header>
     </nav>
 
 
@@ -86,31 +102,12 @@
         </div>
       </div>
     </div>
-  <!-- Search -->
-    <div class="container-fluid">
-      <div class="row">
-        <header class="col-sm-12 head-container">
-          <h1 class="text-center text-white">Skip the rental counter</h1>
-          <p class="text-center text-white">Book unforgettable cars from local hosts around the world</p>
-          <form action="/search" method="get" class="text-center search">
-              <select class="form-control" name="make" id="">
-                <option value="Make" disabled selected>Make</option>
-              <% for(let i = 0; i < car.length; i++) {%>
-                <option value="<%= car[i].make%>"><%= car[i].make%></option>
-              <% } %>
-              </select>
-            <input type="date" class="form-control" name="from" placeholder="From">
-            <input type="date" class="form-control" name="to" placeholder="To">
-              <input class="btn btn-primary" type="submit" value="Search">
-          </form>
-        </header>
-      </div>
-    </div>
+    <br>
 
     <div class="container-fluid">
       <div class="row">
         <% for(let i = 0; i < car.length; i++) {%>
-            <div class="col-sm-12 col-md-4">
+            <div class="col-sm-12 col-md-6 offset-md-3 main-vehicle">
               <div class="card-deck">
                 <div class="card">
                   <a href="/rental/<%= car[i].id%>">
