@@ -4,7 +4,6 @@ module.exports = {
   showBooking: (req, res) => {
     knex('owners').where('owners.id', req.params.id).join('vehicles', 'owners.id', 'vehicles.owner_id')
       .then( (data) => {
-        // console.log(data);
         res.render('booking', {confirm: data[0]})
       })
   },
@@ -12,8 +11,8 @@ module.exports = {
   reserve: (req, res) => {
     knex('bookings').insert({
       vehicle_id: req.params.id,
-      from: req.body.from,
-      to: req.body.to,
+      from: req.query.from,
+      to: req.query.to,
       email: req.body.email,
       name: req.body.name,
       address: req.body.address,
