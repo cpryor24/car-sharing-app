@@ -1,10 +1,25 @@
 const knex = require("../db/knex.js");
+const moment = require('moment');
 
 module.exports = {
   index: (req, res) => {
     knex('vehicles').then( (data) => {
-    console.log(data)
       res.render('index', {vehicle: data});
+    })
+  },
+
+  search: (req, res) => {
+    knex('vehicles')
+    .select('bookings.*', 'vehicles.*')
+    .leftJoin('bookings', 'bookings.vehicle_id', 'vehicles.id')
+    .where('vehicles.make', req.query.make)
+    .whereRaw(`(("from" < '${req.query.from}' AND "to" < '${req.query.to}') OR ("from" > '${req.query.from}' AND "to" > '${req.query.to}') OR ("from" IS null AND "to" IS null))`)
+    .distinct()
+    .then( (results) => {
+      knex('vehicles').then((vehicles)=>{
+        console.log('results', results, req.query.from, req.query.to)
+        res.render('search-vehicle', {books: results, car: vehicles})
+      })
     })
   },
 
@@ -24,7 +39,7 @@ module.exports = {
   },
 
   login: (req, res) => {
-    console.log(req.body.email);
+    // console.log(req.body.email);
     knex('owners').where("email", req.body.email)
     .then((results)=>{
 

@@ -8,8 +8,8 @@ exports.up = function(knex, Promise) {
       .inTable('vehicles')
       .onDelete('CASCADE')
       .index();
-    table.string('from');
-    table.string('to');
+    table.date('from');
+    table.date('to');
     table.string('email');
     table.string('name');
     table.string('address');
