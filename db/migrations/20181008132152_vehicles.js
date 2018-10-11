@@ -15,7 +15,7 @@ exports.up = function(knex, Promise) {
     table.text('url_img');
     table.string('city');
     table.string('state');
-    table.integer('trips').notNullable();
+    table.integer('trips')
     table.text('description');
     table.text('instructions');
     table.integer('owner_id')

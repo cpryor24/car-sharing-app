@@ -9,8 +9,9 @@ module.exports = {
 
   search: (req, res) => {
     knex('vehicles').then( (data) => {
-      knex('bookings').where('from', req.query.from).where('to', req.query.to)
+      knex('bookings').whereNot({from: req.query.from, to: req.query.to})
         .then( (results) => {
+          console.log('results', results)
           res.render('search-vehicle', {car: data, book: results})
         })
     })
@@ -32,7 +33,7 @@ module.exports = {
   },
 
   login: (req, res) => {
-    console.log(req.body.email);
+    // console.log(req.body.email);
     knex('owners').where("email", req.body.email)
     .then((results)=>{
 

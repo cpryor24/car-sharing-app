@@ -139,7 +139,7 @@
     <div class="container-fluid">
       <div class="row">
         <% for(let i = 0; i < vehicle.length; i++) {%>
-            <div class="col-sm-12 col-md-4">
+            <div class="col-sm-12 col-md-4 main-vehicle">
               <div class="card-deck">
                 <div class="card">
                   <a href="/rental/<%= vehicle[i].id%>">
@@ -155,7 +155,9 @@
                 </div>
               </div>
             </div>
+
         <% } %>
+        <br><br>
       </div>
     </div>
     <br>
