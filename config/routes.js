@@ -32,6 +32,7 @@ module.exports = function(app){
   app.post('/editvehicle/:id', addcar.edit);
   app.get('/deletevehicle/:id', addcar.delete);
 
+  app.get('/logout', ownerpage.logout);
 
 
 }

@@ -130,7 +130,6 @@ body{
 
 .vehicle_edit {
   margin-left: 30px;
-
 }
 
 .reserve img {
@@ -199,4 +198,10 @@ body{
 .rent-title {
   font-size: 28px;
   font-weight: bold;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: cursive;
 }

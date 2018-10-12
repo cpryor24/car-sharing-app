@@ -6,11 +6,17 @@ module.exports = {
     knex('owners').where("id" , req.session.owner_id)
     .then((owner)=>{
       knex('vehicles').where('owner_id', req.session.owner_id).then((results)=>{
-    
+
         res.render('ownerpage', {owner:owner[0], vehicles:results});
       })
 
     })
 
   },
+
+  logout: (req, res) => {
+    req.session.destroy(()=>{
+      res.redirect('/');
+    });
+  }
 }
