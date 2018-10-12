@@ -31,7 +31,8 @@ newcar:(req, res)=>{
    city:req.body.city,
    state:req.body.state,
    description:req.body.description,
-   instructions:req.body.instructions
+   instructions:req.body.instructions,
+   trips:req.body.trips
  }).then(()=>{
    res.redirect('/ownerpage');
  })
