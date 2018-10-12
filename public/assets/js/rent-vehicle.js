@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fromDate.value = JSON.parse(localStorage.getItem('From Date'));
     toDate.value = JSON.parse(localStorage.getItem('To Date'));
     let rentalPrice = parseInt(price) * days;
+    let totalDays = localStorage.setItem('Days', JSON.stringify(days));
     let total = localStorage.setItem('Total Price', JSON.stringify(rentalPrice));
   }
 

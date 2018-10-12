@@ -11,14 +11,15 @@ module.exports = {
   reserve: (req, res) => {
     knex('bookings').insert({
       vehicle_id: req.params.id,
-      from: req.query.from,
-      to: req.query.to,
+      from: req.body.from,
+      to: req.body.to,
       email: req.body.email,
       name: req.body.name,
       address: req.body.address,
       city: req.body.city,
       state: req.body.state,
       zip: req.body.zip,
+      total_price: req.body.price,
       img: req.body.img
     }).then( () => {
       res.redirect(`/reservation/${req.params.id}`);
