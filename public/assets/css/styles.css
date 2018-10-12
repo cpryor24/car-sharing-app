@@ -141,3 +141,62 @@ body{
 .main-vehicle {
   margin-bottom: 20px;
 }
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.price-color {
+  background-color: lightgray;
+}
+
+#book,
+#checkout {
+  width: 250px;
+}
+
+/* Rent Vehicle Page */
+
+.rent-hero {
+  height: 75vh;
+}
+
+.rent {
+  border: 2px solid white;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  background-color: white;
+  padding-top: 20px;
+  margin-top: -60px;
+}
+
+#price{
+  font-size: 60px;
+}
+
+.top-border {
+  border-top: 1px solid lightgray;
+  padding-top: 10px
+}
+
+.bottom-border {
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 10px;
+}
+
+.img-rent {
+  margin-top: 0;
+}
+
+.rent-font-size {
+  font-size: 14px;
+}
+
+.rent-title {
+  font-size: 28px;
+  font-weight: bold;
+}
