@@ -4,7 +4,6 @@ module.exports = {
   showBooking: (req, res) => {
     knex('owners').where('owners.id', req.params.id).join('vehicles', 'owners.id', 'vehicles.owner_id')
       .then( (data) => {
-        // console.log(data);
         res.render('booking', {confirm: data[0]})
       })
   },
@@ -20,6 +19,7 @@ module.exports = {
       city: req.body.city,
       state: req.body.state,
       zip: req.body.zip,
+      total_price: req.body.price,
       img: req.body.img
     }).then( () => {
       res.redirect(`/reservation/${req.params.id}`);

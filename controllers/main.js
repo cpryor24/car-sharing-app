@@ -39,7 +39,6 @@ module.exports = {
   },
 
   login: (req, res) => {
-    // console.log(req.body.email);
     knex('owners').where("email", req.body.email)
     .then((results)=>{
 

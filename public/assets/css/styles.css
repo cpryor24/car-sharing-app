@@ -1,3 +1,12 @@
+body{
+  font-family: arial;
+  font-size: 18px;
+}
+
+.nav-color {
+  background-color: black;
+}
+
 .head-container {
   background: url('/assets/img/bg.png');
   background-size: cover;
@@ -6,10 +15,63 @@
   padding-top: 200px;
 }
 
+.hero-font {
+  font-size: 60px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.hero-secondary-font {
+  font-size: 24px;
+}
+
+.title {
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.title-color {
+  color: lime;
+}
+
+.title-weight {
+  font-weight: bold;
+}
+
+.main-price {
+  border: 2px solid white;
+  border-top-left-radius: 10px;
+  position: absolute;
+  bottom: 35px;
+  right: 0px;
+  background-color: white;
+}
+
+.main .card {
+  border: 0 solid white;
+}
+
+.main .card-body {
+  padding: 1.25rem 0;
+}
+
+.main-total {
+  font-size: 35px;
+  font-weight: bold;
+  padding-top: 5px;
+}
+
+.main-symbol {
+  font-size: 16px;
+}
+
 .container-fluid {
-  /* padding-right: 0; */
-  /* padding-left: 0; */
   overflow: hidden;
+}
+
+.rental {
+  padding-right: 0;
+  padding-left: 0;
 }
 
 .login .form-control,
@@ -72,7 +134,7 @@
 }
 
 .reserve img {
-  height: 90vh;
+  height: 84vh;
   width: 100vw;
 }
 

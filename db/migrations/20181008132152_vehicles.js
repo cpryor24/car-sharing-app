@@ -5,7 +5,7 @@ exports.up = function(knex, Promise) {
     table.string('make');
     table.string('model');
     table.integer('year').notNullable();
-    table.decimal('price');
+    table.integer('price');
     table.integer('odometer').notNullable();
     table.string('transmission');
     table.integer('mpg').notNullable();
